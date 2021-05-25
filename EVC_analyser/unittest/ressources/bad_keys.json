@@ -1,0 +1,42 @@
+{
+    "Scenario_1x": {
+        "memberx": [
+            {
+                "test_namex": "test_1",
+                "device_modelx": "revG",
+                "actuation_configx": {
+                    "provisioning_atx": "19h10",
+                    "get_data_atx": "20h30",
+                    "configx": {
+                        "actuation1x": "19h20",
+                        "actuation2x": "19h50",
+                        "modex": "agenda",
+                        "serialx": "false",
+                        "disengagex": "false",
+                        "durationx": [
+                            "5",
+                            "5",
+                            "5",
+                            "5"
+                        ],
+                        "evx": [
+                            "true",
+                            "true",
+                            "true",
+                            "true"
+                        ],
+                        "daysx": {
+                            "lundix": "true",
+                            "mardix": "true",
+                            "mercredix": "true",
+                            "jeudix": "true",
+                            "vendredix": "true",
+                            "samedix": "true",
+                            "dimanchex": "true"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

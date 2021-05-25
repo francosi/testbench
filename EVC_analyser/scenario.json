@@ -1,0 +1,40 @@
+{
+    "Scenario_1": {
+        "member": {
+            "test_name": "test_1",
+            "device_model": "revG",
+            "actuation_config": {
+                "provisioning_at": "19h10",
+                "get_data_at": "20h30",
+                "config": {
+                    "actuation1": "19h20",
+                    "actuation2": "19h50",
+                    "mode": "agenda",
+                    "serial": "false",
+                    "disengage": "false",
+                    "duration": [
+                        "5",
+                        "5",
+                        "5",
+                        "5"
+                    ],
+                    "ev": [
+                        "true",
+                        "true",
+                        "true",
+                        "true"
+                    ],
+                    "days": {
+                        "lundi": "true",
+                        "mardi": "true",
+                        "mercredi": "true",
+                        "jeudi": "true",
+                        "vendredi": "true",
+                        "samedi": "true",
+                        "dimanche": "true"
+                    }
+                }
+            }
+        }
+    }
+}

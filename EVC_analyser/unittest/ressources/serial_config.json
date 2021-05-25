@@ -1,0 +1,409 @@
+{
+  "_id": "2aee5c6363e27b6227298f5ab35a6d80",
+  "id": "0004a30b00ed96b1",
+  "msid": "07132fe261bbc973c48c7cdfd57e497f",
+  "push_api": false,
+  "openData": false,
+  "adminComment": "",
+  "deviceAlertTracking": true,
+  "alertType": "email",
+  "status": "running",
+  "network_provider": "lora_tts",
+  "firstValueTimeStamp": "2021-05-24T13:27:47.187878729Z",
+  "lastValueTimeStamp": "2021-05-24T13:55:32.144759688Z",
+  "action_status": "",
+  "sensorSetAlert": false,
+  "number_device_communication_error": 0,
+  "number_out_of_range_error": 0,
+  "battery_alert": false,
+  "referrers": {},
+  "smart_frequency": {
+    "smart_frequency_trigger": "",
+    "smart_frequency_type": "fixed",
+    "smart_frequency_criteria": "",
+    "smart_frequency_trigger_value": 0
+  },
+  "firmwareVersion": "63.06",
+  "firmwareType": "actuator",
+  "loraVersion": "v1.0.4",
+  "error_out_of_range_min": null,
+  "error_out_of_range_max": null,
+  "name": "Proto EVC Lora Alex",
+  "type": "94_EV_CONTROLLER_V2_WATER_METER_LORA",
+  "timezone": 2,
+  "timezoneName": "",
+  "deviceOnAlert": false,
+  "provider_settings": {},
+  "product_brand": "greencityzen",
+  "null_fields": [
+    "battery_carte",
+    "index_gap",
+    "water_consumption",
+    "electro_valve_status",
+    "electro_valve_status_afterAction",
+    "water_comsuption_during_opening",
+    "water_leak",
+    "action_duration",
+    "effective_watering_duration",
+    "watering_savings_percentage",
+    "water_leak_7days",
+    "gap_cumulative_vs_counter",
+    "check_missing_data",
+    "water_counter_index",
+    "water_consumption_24h",
+    "ranking_watering_savings_percentage",
+    "watering_consumption_per_minute",
+    "ranking_water_leak",
+    "ranking_water_leak_7days",
+    "precipitation_forecast_1day",
+    "disengage_watering"
+  ],
+  "nature": "device",
+  "lat": 43.292124799999996,
+  "lng": 5.3718001,
+  "meta_data_ev_1": false,
+  "meta_data_ev_2": true,
+  "meta_data_ev_3": false,
+  "meta_data_ev_4": true,
+  "meta_data_counter_change_volume": 1,
+  "meta_data_auto_disengage_watering": false,
+  "device_communication_error": [],
+  "out_of_range_error": [],
+  "collectionFrequency": 60,
+  "last_value_timestamp": "2021-05-24T13:55:32.144759688Z",
+  "last_value_clock": 0,
+  "alert_clock": false,
+  "last_value_pulse_cumulative": 99,
+  "alert_pulse_cumulative": false,
+  "last_value_battery_carte": null,
+  "alert_battery_carte": false,
+  "last_value_device_type_number": 94,
+  "alert_device_type_number": false,
+  "last_value_gap_cumulative": -512,
+  "alert_gap_cumulative": false,
+  "last_value_gap_cumulative_corrected": 0,
+  "alert_gap_cumulative_corrected": false,
+  "last_value_gap_cumulative_vs_counter": null,
+  "alert_gap_cumulative_vs_counter": false,
+  "last_value_check_missing_data": null,
+  "alert_check_missing_data": false,
+  "last_value_index_gap": null,
+  "alert_index_gap": false,
+  "last_value_water_consumption": null,
+  "alert_water_consumption": false,
+  "last_value_delay_last_message": 1.73693,
+  "alert_delay_last_message": false,
+  "last_value_water_counter_index": null,
+  "alert_water_counter_index": false,
+  "last_value_water_consumption_24h": null,
+  "alert_water_consumption_24h": false,
+  "last_value_water_consumption_MTD": 0,
+  "alert_water_consumption_MTD": false,
+  "last_value_water_consumption_YTD": 0,
+  "alert_water_consumption_YTD": false,
+  "last_value_electro_valve": 10,
+  "alert_electro_valve": false,
+  "last_value_electro_valve_status": null,
+  "alert_electro_valve_status": false,
+  "last_value_electro_valve_status_afterAction": null,
+  "alert_electro_valve_status_afterAction": false,
+  "last_value_water_comsuption_during_opening": null,
+  "alert_water_comsuption_during_opening": false,
+  "last_value_water_leak": null,
+  "alert_water_leak": false,
+  "last_value_action_duration": null,
+  "alert_action_duration": false,
+  "last_value_effective_watering_duration": null,
+  "alert_effective_watering_duration": false,
+  "last_value_watering_duration_savings": 0,
+  "alert_watering_duration_savings": false,
+  "last_value_effective_watering_duration_YTD": 2,
+  "alert_effective_watering_duration_YTD": false,
+  "last_value_watering_duration_savings_YTD": 0,
+  "alert_watering_duration_savings_YTD": false,
+  "last_value_watering_savings_percentage": null,
+  "alert_watering_savings_percentage": false,
+  "last_value_ranking_watering_savings_percentage": null,
+  "alert_ranking_watering_savings_percentage": false,
+  "last_value_watering_consumption_per_minute": null,
+  "alert_watering_consumption_per_minute": false,
+  "last_value_watering_duration_24h": 2,
+  "alert_watering_duration_24h": false,
+  "last_value_ranking_water_leak": null,
+  "alert_ranking_water_leak": false,
+  "last_value_water_leak_7days": null,
+  "alert_water_leak_7days": false,
+  "last_value_ranking_water_leak_7days": null,
+  "alert_ranking_water_leak_7days": false,
+  "last_value_precipitation_forecast_1day": null,
+  "alert_precipitation_forecast_1day": false,
+  "last_value_disengage_watering": null,
+  "alert_disengage_watering": false,
+  "sensors": [
+    {
+      "id": "0000",
+      "name": "clock",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "1111",
+      "name": "pulse_cumulative",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "2222",
+      "name": "battery_carte",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "3333",
+      "name": "device_type_number",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "4444",
+      "name": "gap_cumulative",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "5555",
+      "name": "gap_cumulative_corrected",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "6666",
+      "name": "gap_cumulative_vs_counter",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "7777",
+      "name": "check_missing_data",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "8888",
+      "name": "index_gap",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "9999",
+      "name": "water_consumption",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "10101010",
+      "name": "delay_last_message",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "11111111",
+      "name": "water_counter_index",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "12121212",
+      "name": "water_consumption_24h",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "14141414",
+      "name": "water_consumption_MTD",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "16161616",
+      "name": "water_consumption_YTD",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "17171717",
+      "name": "electro_valve",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "18181818",
+      "name": "electro_valve_status",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "19191919",
+      "name": "electro_valve_status_afterAction",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "20202020",
+      "name": "water_comsuption_during_opening",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "21212121",
+      "name": "water_leak",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "22222222",
+      "name": "action_duration",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "23232323",
+      "name": "effective_watering_duration",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "24242424",
+      "name": "watering_duration_savings",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "26262626",
+      "name": "effective_watering_duration_YTD",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "28282828",
+      "name": "watering_duration_savings_YTD",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "29292929",
+      "name": "watering_savings_percentage",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "30303030",
+      "name": "ranking_watering_savings_percentage",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "31313131",
+      "name": "watering_consumption_per_minute",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "32323232",
+      "name": "watering_duration_24h",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "33333333",
+      "name": "ranking_water_leak",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "34343434",
+      "name": "water_leak_7days",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "35353535",
+      "name": "ranking_water_leak_7days",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "36363636",
+      "name": "precipitation_forecast_1day",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    },
+    {
+      "id": "37373737",
+      "name": "disengage_watering",
+      "currentAlertThresholdMin": null,
+      "currentAlertThresholdMax": null,
+      "sensorOnAlert": false
+    }
+  ],
+  "actuator": true,
+  "actuatorConfig": {
+    "mode": "agenda",
+    "agenda": {
+      "days": [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday"
+      ],
+      "duration": "2",
+      "startTimes": [
+        "15:55",
+        "16:10"
+      ]
+    },
+    "periodic": {
+      "startTime": "",
+      "duration": ""
+    },
+    "serialActuation": true
+  },
+  "alert_recipients": [],
+  "lastGroundFloor": 25
+}

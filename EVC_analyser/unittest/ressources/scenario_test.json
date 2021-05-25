@@ -1,0 +1,116 @@
+{
+    "Scenario_1": {
+        "member": {
+            "test_name": "initial planing",
+            "device_model": "revG",
+            "actuation_config": {
+                "provisioning_at": "00:2",
+                "get_data_at": "00:15",
+                "config": {
+                    "actuation1": "00:04",
+                    "actuation2": "00:12",
+                    "mode": "agenda",
+                    "serial": "false",
+                    "disengage": "false",
+                    "duration": [
+                        "1",
+                        "1",
+                        "1",
+                        "1"
+                    ],
+                    "ev": [
+                        "true",
+                        "true",
+                        "true",
+                        "true"
+                    ],
+                    "days": {
+                        "lundi": "true",
+                        "mardi": "true",
+                        "mercredi": "true",
+                        "jeudi": "true",
+                        "vendredi": "true",
+                        "samedi": "true",
+                        "dimanche": "true"
+                    }
+                }
+            }
+        }
+    },
+    "Scenario_2": {
+        "member": {
+            "test_name": "planing change before actuation 2",
+            "device_model": "revG",
+            "actuation_config": {
+                "provisioning_at": "00:16",
+                "get_data_at": "00:31",
+                "config": {
+                    "actuation1": "00:17",
+                    "actuation2": "00:21",
+                    "mode": "agenda",
+                    "serial": "false",
+                    "disengage": "false",
+                    "duration": [
+                        "2",
+                        "2",
+                        "2",
+                        "2"
+                    ],
+                    "ev": [
+                        "true",
+                        "true",
+                        "true",
+                        "true"
+                    ],
+                    "days": {
+                        "lundi": "true",
+                        "mardi": "true",
+                        "mercredi": "true",
+                        "jeudi": "true",
+                        "vendredi": "true",
+                        "samedi": "true",
+                        "dimanche": "true"
+                    }
+                }
+            }
+        }
+    },
+    "Scenario_3": {
+        "member": {
+            "test_name": "planing change before sanity",
+            "device_model": "revG",
+            "actuation_config": {
+                "provisioning_at": "00:32",
+                "get_data_at": "00:47",
+                "config": {
+                    "actuation1": "00:34",
+                    "actuation2": "00:40",
+                    "mode": "agenda",
+                    "serial": "false",
+                    "disengage": "false",
+                    "duration": [
+                        "2",
+                        "2",
+                        "2",
+                        "2"
+                    ],
+                    "ev": [
+                        "true",
+                        "true",
+                        "true",
+                        "true"
+                    ],
+                    "days": {
+                        "lundi": "true",
+                        "mardi": "true",
+                        "mercredi": "true",
+                        "jeudi": "true",
+                        "vendredi": "true",
+                        "samedi": "true",
+                        "dimanche": "true"
+                    }
+                }
+            }
+        }
+    }
+}
