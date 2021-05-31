@@ -29,7 +29,7 @@ def analyse_frequency(config, measures, scenario):
         else:
             supressed_report += int((int(scenario['config']['duration'][0]) * 60) / frequency)
     total_message_expected_max = int(time_elapsed / frequency) + count_actuation_confirm
-    total_message_expected_min = total_message_expected_max - (1 + supressed_report)
+    total_message_expected_min = int(total_message_expected_max - (1 + supressed_report))
     count_msg = 0
     for item in measures:
         if item['timestamp'] > start and item['message_code'] == 16:
@@ -55,14 +55,14 @@ def analyse_actuation(config, measures, scenario):
     actuation2_closing_cpt = 0
     opening_closing_expected = 0
     ev_count = 0
-    actuation1_start_min = int(scenario['config']['actuation1']) - 120
-    actuation1_start_max = int(scenario['config']['actuation1']) + 120
-    actuation1_stop_min = actuation1_start_min + (int(scenario['config']['duration'][0]) * 60) + 60
-    actuation1_stop_max = actuation1_start_max + (int(scenario['config']['duration'][0]) * 60) + 60
-    actuation2_start_min = int(scenario['config']['actuation2']) - 120
-    actuation2_start_max = int(scenario['config']['actuation2']) + 120
-    actuation2_stop_min = actuation2_start_min + (int(scenario['config']['duration'][0]) * 60) + 60
-    actuation2_stop_max = actuation2_start_max + (int(scenario['config']['duration'][0]) * 60) + 60
+    actuation1_start_min = int(scenario['config']['actuation1']) - 60
+    actuation1_start_max = int(scenario['config']['actuation1']) + 60
+    actuation1_stop_min = actuation1_start_min + (int(scenario['config']['duration'][0]) * 60)
+    actuation1_stop_max = actuation1_start_max + (int(scenario['config']['duration'][0]) * 60)
+    actuation2_start_min = int(scenario['config']['actuation2']) - 60
+    actuation2_start_max = int(scenario['config']['actuation2']) + 60
+    actuation2_stop_min = actuation2_start_min + (int(scenario['config']['duration'][0]) * 60)
+    actuation2_stop_max = actuation2_start_max + (int(scenario['config']['duration'][0]) * 60)
     measures.reverse()
     for item in scenario['config']['ev']:
         if item == 'true':
@@ -100,10 +100,10 @@ def analyse_actuation(config, measures, scenario):
 
     else:
         print("\tSerial : TRUE\n", flush=True)
-        actuation1_stop_min += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6)
-        actuation1_stop_max += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6)
-        actuation2_stop_min += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6)
-        actuation2_stop_max += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6)
+        actuation1_stop_min += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6) + (20 * ev_count)
+        actuation1_stop_max += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6) + (20 * ev_count)
+        actuation2_stop_min += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6) + (20 * ev_count)
+        actuation2_stop_max += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6) + (20 * ev_count)
         opening_closing_expected *= ev_count
         for item in measures:
             if item['timestamp'] > start and item['message_code'] == 21:
@@ -116,9 +116,9 @@ def analyse_actuation(config, measures, scenario):
                     actuation2_opening_cpt = int(item['pulse_cumulative'])
                     print("\topenening 2 : " + item['created_at'] + " \033[92mPASS\033[0m\n", flush=True)
                 elif item['timestamp'] >= actuation1_start_min and item['timestamp'] <= actuation1_stop_max:
-                    pass
+                    opening_count += 1
                 elif item['timestamp'] >= actuation2_start_min and item['timestamp'] <= actuation2_stop_max:
-                    pass
+                    opening_count += 1
                 else:
                     print("\topenening Unwanted : " + item['created_at'] + " \033[91mFAIL\033[0m\n", flush=True)
             if item['timestamp'] > start and item['message_code'] == 25:
@@ -131,9 +131,9 @@ def analyse_actuation(config, measures, scenario):
                     actuation2_closing_cpt = int(item['pulse_cumulative'])
                     print("\tclosing 2 : " + item['created_at'] + " " + str(item['timestamp']) + " \033[92mPASS\033[0m\n", flush=True)
                 elif item['timestamp'] >= actuation1_start_min and item['timestamp'] <= actuation1_stop_max:
-                    pass
+                    opening_count += 1
                 elif item['timestamp'] >= actuation2_start_min and item['timestamp'] <= actuation2_stop_max:
-                    pass
+                    opening_count += 1
                 else:
                     print("\tclosing Unwanted : " + item['created_at'] + " \033[91mFAIL\033[0m\n", flush=True)
 
