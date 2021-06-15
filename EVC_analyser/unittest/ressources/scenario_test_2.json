@@ -10,8 +10,8 @@
                     "actuation1": "00:11",
                     "actuation2": "00:28",
                     "mode": "agenda",
-                    "serial": "true",
-                    "disengage": "false",
+                    "serial": "false",
+                    "disengage": "true",
                     "duration": [
                         "2",
                         "2",
@@ -20,9 +20,9 @@
                     ],
                     "ev": [
                         "true",
-                        "true",
-                        "true",
-                        "true"
+                        "false",
+                        "false",
+                        "false"
                     ],
                     "days": {
                         "monday": "true",
@@ -48,19 +48,19 @@
                     "actuation1": "00:55",
                     "actuation2": "01:05",
                     "mode": "agenda",
-                    "serial": "false",
-                    "disengage": "false",
+                    "serial": "true",
+                    "disengage": "true",
                     "duration": [
-                        "2",
-                        "2",
-                        "2",
-                        "2"
+                        "1",
+                        "1",
+                        "1",
+                        "1"
                     ],
                     "ev": [
                         "true",
                         "false",
-                        "true",
-                        "true"
+                        "false",
+                        "false"
                     ],
                     "days": {
                         "monday": "true",
@@ -96,9 +96,9 @@
                     ],
                     "ev": [
                         "true",
-                        "true",
-                        "true",
-                        "true"
+                        "false",
+                        "false",
+                        "false"
                     ],
                     "days": {
                         "monday": "true",

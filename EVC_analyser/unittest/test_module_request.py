@@ -30,8 +30,8 @@ class Test_module_request(unittest.TestCase):
         mes = get_measure('2004E2', bearer)
         self.assertIsNotNone(mes)
 
-    # def test_change_config(self):
-    #     bearer = get_bearer('../bearer.txt')
-    #     conf = get_config('2004E2', bearer)
-    #     conf['actuatorConfig']['agenda']['duration'] = '1'
-    #     self.assertTrue(change_config('2004E2', bearer, conf))
+    def test_change_config(self):
+        bearer = get_bearer('../bearer.txt')
+        conf = get_config('1D89FDB', bearer)
+        # conf['actuatorConfig']['agenda']['duration'] = '1'
+        self.assertTrue(change_config('2004E2', bearer, conf))

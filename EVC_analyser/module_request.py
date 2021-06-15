@@ -4,8 +4,8 @@ import dateutil.parser
 from datetime import datetime
 
 
-# baseUrl = 'https://server-preprod.humm-box.com/'
-baseUrl = 'https://server.humm-box.com/'
+baseUrl = 'https://server-preprod.humm-box.com/'
+# baseUrl = 'https://server.humm-box.com/'
 
 
 def get_bearer(file):

@@ -123,6 +123,7 @@ def update_scenario_time_event(scenario, starting_point):
 
 def update_config(scenario, config):
     if(scenario['member']['actuation_config']['config']['mode'] == 'agenda'):
+        config['actuatorConfig']['mode'] = "agenda"
         config['actuatorConfig']['agenda']['duration'] = str(scenario['member']['actuation_config']['config']['duration'][0])
         new_days = []
         for key in scenario['member']['actuation_config']['config']['days']:
@@ -160,4 +161,10 @@ def update_config(scenario, config):
         else:
             if('serialActuation' in config['actuatorConfig']):
                 del config['actuatorConfig']['serialActuation']
+        if 'pauseInfo' in config['actuatorConfig']:
+            del config['actuatorConfig']['pauseInfo']
+        if scenario['member']['actuation_config']['config']['disengage'] == "true":
+            config['actuatorConfig']['pauseInfo'] = {"activated": True}
+        else :
+            config['actuatorConfig']['pauseInfo'] = {"activated": False}
         return config

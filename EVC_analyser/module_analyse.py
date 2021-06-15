@@ -47,6 +47,10 @@ def analyse_actuation(config, measures, scenario):
     start = scenario['provisioning_at']
     now = datetime.timestamp(datetime.now())
     # time_elapsed = now - start
+    skiped = False
+    disengage = False
+    if scenario['config']['disengage'] == "true":
+        disengage = True
     opening_count = 0
     closing_count = 0
     actuation1_opening_cpt = 0
@@ -80,10 +84,20 @@ def analyse_actuation(config, measures, scenario):
                     opening_count += 1
                     actuation1_opening_cpt = int(item['pulse_cumulative'])
                     print("\topenening 1 : " + item['created_at'] + " \033[92mPASS\033[0m\n", flush=True)
+                    if disengage == True and item['action_status'] == 6:
+                        print("\tdisengage 1 :" + " \033[92mPASS\033[0m\n", flush=True)
+                        skiped = True
+                    elif disengage == True and item['action_status'] != 6:
+                        print("\tdisengage 1 :" + " \033[91mFAIL\033[0m\n", flush=True)
                 elif item['timestamp'] >= actuation2_start_min and item['timestamp'] <= actuation2_start_max:
                     opening_count += 1
                     actuation2_opening_cpt = int(item['pulse_cumulative'])
                     print("\topenening 2 : " + item['created_at'] + " \033[92mPASS\033[0m\n", flush=True)
+                    if disengage == True and item['action_status'] == 6:
+                        print("\tdisengage 2 :" + " \033[92mPASS\033[0m\n", flush=True)
+                        skiped = True
+                    elif disengage == True and item['action_status'] != 6:
+                        print("\tdisengage 2 :" + " \033[91mFAIL\033[0m\n", flush=True)
                 else:
                     print("\topenening Unwanted : " + item['created_at'] + " \033[91mFAIL\033[0m\n", flush=True)
             if item['timestamp'] > start and item['message_code'] == 25:
@@ -104,17 +118,28 @@ def analyse_actuation(config, measures, scenario):
         actuation1_stop_max += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6) + (20 * ev_count)
         actuation2_stop_min += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6) + (20 * ev_count)
         actuation2_stop_max += ((int(scenario['config']['duration'][0]) * 60) * (ev_count - 1)) + (ev_count * 6) + (20 * ev_count)
-        opening_closing_expected *= ev_count
+        if disengage == False:
+            opening_closing_expected *= ev_count
         for item in measures:
             if item['timestamp'] > start and item['message_code'] == 21:
                 if item['timestamp'] >= actuation1_start_min and item['timestamp'] <= actuation1_start_max:
                     opening_count += 1
                     actuation1_opening_cpt = int(item['pulse_cumulative'])
                     print("\topenening 1 : " + item['created_at'] + " \033[92mPASS\033[0m\n", flush=True)
+                    if disengage == True and item['action_status'] == 6:
+                        print("\tdisengage 1 :" + " \033[92mPASS\033[0m\n", flush=True)
+                        skiped = True
+                    elif disengage == True and item['action_status'] != 6:
+                        print("\tdisengage 1 :" + " \033[91mFAIL\033[0m\n", flush=True)
                 elif item['timestamp'] >= actuation2_start_min and item['timestamp'] <= actuation2_start_max:
                     opening_count += 1
                     actuation2_opening_cpt = int(item['pulse_cumulative'])
                     print("\topenening 2 : " + item['created_at'] + " \033[92mPASS\033[0m\n", flush=True)
+                    if disengage == True and item['action_status'] == 6:
+                        print("\tdisengage 2 :" + " \033[92mPASS\033[0m\n", flush=True)
+                        skiped = True
+                    elif disengage == True and item['action_status'] != 6:
+                        print("\tdisengage 2 :" + " \033[91mFAIL\033[0m\n", flush=True)
                 elif item['timestamp'] >= actuation1_start_min and item['timestamp'] <= actuation1_stop_max:
                     opening_count += 1
                 elif item['timestamp'] >= actuation2_start_min and item['timestamp'] <= actuation2_stop_max:
@@ -137,15 +162,21 @@ def analyse_actuation(config, measures, scenario):
                 else:
                     print("\tclosing Unwanted : " + item['created_at'] + " \033[91mFAIL\033[0m\n", flush=True)
 
-    if opening_closing_expected == opening_count + closing_count:
-        print("\tNb opening/closing : " + str(opening_count + closing_count) + " \033[92mPASS\033[0m\n", flush=True)
+    if skiped == False :
+        if opening_closing_expected == opening_count + closing_count:
+            print("\tNb opening/closing : " + str(opening_count + closing_count) + " \033[92mPASS\033[0m\n", flush=True)
+        else:
+            print("\tNb opening/closing : " + str(opening_count + closing_count) + " \033[91mFAIL\033[0m\n", flush=True)
+        if (actuation1_closing_cpt - actuation1_opening_cpt == ev_count * 2):
+            print("\tLoopback control actuation 1 : " + str(actuation1_closing_cpt - actuation1_opening_cpt) + " \033[92mPASS\033[0m\n", flush=True)
+        else:
+            print("\tLoopback control actuation 1 : \033[91mFAIL\033[0m\n", flush=True)
+        if (actuation2_closing_cpt - actuation2_opening_cpt == ev_count * 2):
+            print("\tLoopback control actuation 2 : " + str(actuation2_closing_cpt - actuation2_opening_cpt) + " \033[92mPASS\033[0m\n", flush=True)
+        else:
+            print("\tLoopback control actuation 2 : \033[91mFAIL\033[0m\n", flush=True)
     else:
-        print("\tNb opening/closing : " + str(opening_count + closing_count) + " \033[91mFAIL\033[0m\n", flush=True)
-    if (actuation1_closing_cpt - actuation1_opening_cpt == ev_count * 2):
-        print("\tLoopback control actuation 1 : " + str(actuation1_closing_cpt - actuation1_opening_cpt) + " \033[92mPASS\033[0m\n", flush=True)
-    else:
-        print("\tLoopback control actuation 1 : \033[91mFAIL\033[0m\n", flush=True)
-    if (actuation2_closing_cpt - actuation2_opening_cpt == ev_count * 2):
-        print("\tLoopback control actuation 2 : " + str(actuation2_closing_cpt - actuation2_opening_cpt) + " \033[92mPASS\033[0m\n", flush=True)
-    else:
-        print("\tLoopback control actuation 2 : \033[91mFAIL\033[0m\n", flush=True)
+        if opening_closing_expected / 2 == opening_count:
+            print("\tNb opening/closing : " + str(opening_count) + " \033[92mPASS\033[0m\n", flush=True)
+        else:
+            print("\tNb opening/closing : " + str(opening_count) + " \033[91mFAIL\033[0m\n", flush=True)

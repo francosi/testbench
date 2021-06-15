@@ -23,5 +23,5 @@ class Test_module_scenario(unittest.TestCase):
         self.assertFalse(check_scenario_keys(scenario))
 
     def test_get_scenario_good_keys(self):
-        scenario = get_scenario('../scenario.json')
+        scenario = get_scenario('ressources/scenario_test_2.json')
         self.assertTrue(check_scenario_keys(scenario))
