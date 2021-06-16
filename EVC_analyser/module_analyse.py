@@ -29,7 +29,7 @@ def analyse_frequency(config, measures, scenario):
         else:
             supressed_report += int((int(scenario['config']['duration'][0]) * 60) / frequency)
     total_message_expected_max = int(time_elapsed / frequency) + count_actuation_confirm
-    total_message_expected_min = int(total_message_expected_max - (1 + supressed_report))
+    total_message_expected_min = int(total_message_expected_max - (1 + supressed_report) - 2)
     count_msg = 0
     for item in measures:
         if item['timestamp'] > start and item['message_code'] == 16:
