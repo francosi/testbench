@@ -92,7 +92,7 @@ def check_scenario_keys(scenario):
 
 def update_scenario_time_event(scenario, starting_point):
     now = datetime.timestamp(datetime.now())
-    print('now :' + str(now), flush=True)
+    # print('now :' + str(now), flush=True)
     for key in scenario:
         provision_sec = scenario[key]['member']['actuation_config']['provisioning_at']
         tmp = provision_sec.split(':')
