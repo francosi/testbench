@@ -90,35 +90,54 @@ def check_scenario_keys(scenario):
     return True
 
 
+def get_max_duration(scenario):
+    ev_count = 0
+    max = int(0)
+    for item in scenario['config']['ev']:
+        if item == 'true':
+            ev_count += 1
+    for item in scenario['config']['duration']:
+        if int(item) > max :
+            max = int(item)
+    if (scenario['config']['serial'] == "false"):
+        return max + 2
+    else:
+        return (max * ev_count) + 2
+
 def update_scenario_time_event(scenario, starting_point):
     now = datetime.timestamp(datetime.now())
+    duration_max = 0
+    tmp_duration = 0
     # print('now :' + str(now), flush=True)
     for key in scenario:
+        tmp_duration = get_max_duration(scenario[key]['member']['actuation_config'])
+        if tmp_duration > duration_max:
+            duration_max = tmp_duration
         provision_sec = scenario[key]['member']['actuation_config']['provisioning_at']
         tmp = provision_sec.split(':')
         scenario[key]['member']['actuation_config']['provisioning_at'] = (float(tmp[0]) * (60 * 60)) + (float(tmp[1]) * 60) + starting_point
         # print('provisioning_at ' + str(scenario[key]['member']['actuation_config']['provisioning_at']), flush=True)
         if (scenario[key]['member']['actuation_config']['provisioning_at'] < now):
-            return None
+            return None,0
         get_data_sec = scenario[key]['member']['actuation_config']['get_data_at']
         tmp = get_data_sec.split(':')
         scenario[key]['member']['actuation_config']['get_data_at'] = (float(tmp[0]) * (60 * 60)) + (float(tmp[1]) * 60) + starting_point
         # print('get_data_at ' + str(scenario[key]['member']['actuation_config']['get_data_at']), flush=True)
         if (scenario[key]['member']['actuation_config']['get_data_at'] < now):
-            return None
+            return None,0
         actuation1_sec = scenario[key]['member']['actuation_config']['config']['actuation1']
         tmp = actuation1_sec.split(':')
         scenario[key]['member']['actuation_config']['config']['actuation1'] = (float(tmp[0]) * (60 * 60)) + (float(tmp[1]) * 60) + starting_point
         # print('actuation 1 ' + str(scenario[key]['member']['actuation_config']['config']['actuation1']), flush=True)
         if (scenario[key]['member']['actuation_config']['config']['actuation1'] < now):
-            return None
+            return None,0
         actuation2_sec = scenario[key]['member']['actuation_config']['config']['actuation2']
         tmp = actuation2_sec.split(':')
         scenario[key]['member']['actuation_config']['config']['actuation2'] = (float(tmp[0]) * (60 * 60)) + (float(tmp[1]) * 60) + starting_point
         # print('actuation 2 ' + str(scenario[key]['member']['actuation_config']['config']['actuation2']), flush=True)
         if(scenario[key]['member']['actuation_config']['config']['actuation2'] < now or scenario[key]['member']['actuation_config']['config']['actuation2'] < scenario[key]['member']['actuation_config']['config']['actuation1']):
-            return None
-    return scenario
+            return None,0
+    return scenario, duration_max
 
 
 def update_config(scenario, config):

@@ -3,7 +3,7 @@ from datetime import datetime
 import time
 from module_request import (get_log, get_start, get_config, change_config, get_bearer, get_measure)
 from module_scenario import (update_config, get_scenario, check_scenario_keys, update_scenario_time_event)
-from module_analyse import (analyse_frequency, analyse_actuation)
+from module_analyse import (analyse_frequency, analyse_actuation, analyse_reboot)
 
 
 # Print iterations progress
@@ -30,11 +30,16 @@ def printProgressBar(iteration, total, prefix='', suffix='', decimals=1, length=
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        print("Usage : python avc_analyser.py DEVICE_ID SCENARIO")
+    if len(sys.argv) != 4:
+        print("Usage : python avc_analyser.py DEVICE_ID SCENARIO LOG_FILE")
         exit(2)
     device = sys.argv[1]
     scenario_file = sys.argv[2]
+    log_file = sys.argv[3]
+
+
+    file = open(log_file,"w")
+    file.close()
 
     scenario = get_scenario(scenario_file)
     if scenario is None or check_scenario_keys(scenario) is False:
@@ -66,7 +71,7 @@ if __name__ == '__main__':
     # start_point = datetime.timestamp(now)
     # END DEBUG
 
-    scenario = update_scenario_time_event(scenario, start_point)
+    scenario, duration_max = update_scenario_time_event(scenario, start_point)
     if (scenario is None):
         print('Please rewiew scenario : waiting time exceeded\n Or restart the device by push button')
         exit(2)
@@ -74,12 +79,18 @@ if __name__ == '__main__':
     event_iterator = 0
     total_scenario = len(scenario)
     task1 = False
-    print('\nStarting : ' + list(scenario.keys())[0] + ' contain ' + str(total_scenario) + ' task and ' + str(total_scenario * 2) + " event will be generated\n", flush=True)
+    print('\n'+ datetime.now().strftime("%Y/%m/%d %H:%M:%S") + ' Starting ' + device + ' Analyse :' + ' contain ' + str(total_scenario) + ' scenario and ' + str(total_scenario * 2) + " event will be generated\n", flush=True)
+    file = open(log_file,"a")
+    file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + ' Starting ' + device + ' Analyse :' + ' contain ' + str(total_scenario) + ' scenario and ' + str(total_scenario * 2) + " event will be generated\n")
+    file.close()
     lenbar = scenario[list(scenario.keys())[total_scenario - 1]]['member']['actuation_config']['get_data_at'] - start_point
     printProgressBar(0, lenbar, prefix='Progress:', suffix='Complete', length=50, fill='#')
     while event_iterator < total_scenario:
         if task1 is False and datetime.timestamp(datetime.now()) >= scenario[list(scenario.keys())[event_iterator]]['member']['actuation_config']['provisioning_at']:
-            print('\033[Kexectute provisioning task for ' + ' : ' + scenario[list(scenario.keys())[event_iterator]]['member']['test_name'] + '\n', flush=True)
+            print('\033[K' + datetime.now().strftime("%Y/%m/%d %H:%M:%S") + ' execute provisioning task for' + ' : ' + scenario[list(scenario.keys())[event_iterator]]['member']['test_name'] + '\n', flush=True)
+            file = open(log_file,"a")
+            file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + ' execute provisioning task for' + ' : ' + scenario[list(scenario.keys())[event_iterator]]['member']['test_name'] + '\n')
+            file.close()
             config = get_config(device, bearer)
             if config is None:
                 print('Unable to get config')
@@ -88,7 +99,10 @@ if __name__ == '__main__':
             change_config(device, bearer, new_config)
             task1 = True
         if task1 is True and datetime.timestamp(datetime.now()) >= scenario[list(scenario.keys())[event_iterator]]['member']['actuation_config']['get_data_at']:
-            print('\033[Kexectute analyse data for ' + ' : ' + scenario[list(scenario.keys())[event_iterator]]['member']['test_name'] + '\n', flush=True)
+            print('\033[K' + datetime.now().strftime("%Y/%m/%d %H:%M:%S") + ' execute analyse data for' + ' : ' + scenario[list(scenario.keys())[event_iterator]]['member']['test_name'] + '\n', flush=True)
+            file = open(log_file,"a")
+            file.write(datetime.now().strftime("%Y/%m/%d %H:%M:%S") + ' execute analyse data for' + ' : ' + scenario[list(scenario.keys())[event_iterator]]['member']['test_name'] + '\n')
+            file.close()
             config = get_config(device, bearer)
             if config is None:
                 print('Unable to get config')
@@ -101,8 +115,9 @@ if __name__ == '__main__':
             if log is None:
                 print('Something goes wrong with app to get log')
                 exit(2)
-            analyse_frequency(config, measures, scenario[list(scenario.keys())[event_iterator]]['member']['actuation_config'])
-            analyse_actuation(config, measures, scenario[list(scenario.keys())[event_iterator]]['member']['actuation_config'])
+            analyse_frequency(config, measures, scenario[list(scenario.keys())[event_iterator]]['member']['actuation_config'], log_file)
+            analyse_actuation(config, measures, scenario[list(scenario.keys())[event_iterator]]['member']['actuation_config'], log_file)
+            analyse_reboot(start_point, log, duration_max, log_file)
             event_iterator = event_iterator + 1
             task1 = False
         time.sleep(0.1)
