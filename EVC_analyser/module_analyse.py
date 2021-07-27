@@ -166,7 +166,7 @@ def analyse_actuation(config, measures, scenario, log_file):
         if disengage == False:
             opening_closing_expected *= ev_count
         for item in measures:
-            if item['timestamp'] > start and item['message_code'] == 21:
+            if item['timestamp'] >= start and item['message_code'] == 21:
                 if item['timestamp'] >= actuation1_start_min and item['timestamp'] <= actuation1_start_max:
                     opening_count += 1
                     actuation1_opening_cpt = int(item['pulse_cumulative'])
@@ -212,7 +212,7 @@ def analyse_actuation(config, measures, scenario, log_file):
                     file = open(log_file,"a")
                     file.write("\topenening Unwanted : " + item['created_at'] + " FAIL\n")
                     file.close()
-            if item['timestamp'] > start and item['message_code'] == 25:
+            if item['timestamp'] >= start and item['message_code'] == 25:
                 if item['timestamp'] >= actuation1_stop_min and item['timestamp'] <= actuation1_stop_max:
                     closing_count += 1
                     actuation1_closing_cpt = int(item['pulse_cumulative'])

@@ -4,87 +4,12 @@
             "test_name": "initial planing",
             "device_model": "revG",
             "actuation_config": {
-                "provisioning_at": "00:01",
-                "get_data_at": "00:40",
+                "provisioning_at": "00:02",
+                "get_data_at": "00:35",
+                "actuation_per_ev": "true",
                 "config": {
-                    "actuation1": "00:11",
-                    "actuation2": "00:28",
-                    "mode": "agenda",
-                    "serial": "false",
-                    "disengage": "true",
-                    "duration": [
-                        "2",
-                        "2",
-                        "2",
-                        "2"
-                    ],
-                    "ev": [
-                        "true",
-                        "false",
-                        "false",
-                        "false"
-                    ],
-                    "days": {
-                        "monday": "true",
-                        "tuesday": "true",
-                        "wednesday": "true",
-                        "thursday": "true",
-                        "friday": "true",
-                        "saturday": "true",
-                        "sunday": "true"
-                    }
-                }
-            }
-        }
-    },
-    "Scenario_2": {
-        "member": {
-            "test_name": "planing change before actuation 2",
-            "device_model": "revG",
-            "actuation_config": {
-                "provisioning_at": "00:41",
-                "get_data_at": "01:12",
-                "config": {
-                    "actuation1": "00:55",
-                    "actuation2": "01:05",
-                    "mode": "agenda",
-                    "serial": "true",
-                    "disengage": "true",
-                    "duration": [
-                        "1",
-                        "1",
-                        "1",
-                        "1"
-                    ],
-                    "ev": [
-                        "true",
-                        "false",
-                        "false",
-                        "false"
-                    ],
-                    "days": {
-                        "monday": "true",
-                        "tuesday": "true",
-                        "wednesday": "true",
-                        "thursday": "true",
-                        "friday": "true",
-                        "saturday": "true",
-                        "sunday": "true"
-                    }
-                }
-            }
-        }
-    },
-    "Scenario_3": {
-        "member": {
-            "test_name": "planing change before sanity",
-            "device_model": "revG",
-            "actuation_config": {
-                "provisioning_at": "01:13",
-                "get_data_at": "01:45",
-                "config": {
-                    "actuation1": "01:21",
-                    "actuation2": "01:35",
+                    "actuation1": "00:20",
+                    "actuation2": "00:30",
                     "mode": "agenda",
                     "serial": "true",
                     "disengage": "false",
