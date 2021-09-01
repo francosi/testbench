@@ -180,6 +180,8 @@ def update_config(scenario, config):
                 del config['actuatorConfig']['ev_4']['duration']
         else:
             config['actuatorConfig']['actuation_per_ev'] = True
+            if 'duration' in config['actuatorConfig']['agenda']:
+                del config['actuatorConfig']['agenda']['duration']
             if (scenario['member']['actuation_config']['config']['ev'][0] == 'true'):
                 config['actuatorConfig']['ev_1']['active'] = True
                 config['actuatorConfig']['ev_1']['duration'] = str(scenario['member']['actuation_config']['config']['duration'][0])
