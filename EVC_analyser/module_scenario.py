@@ -81,6 +81,8 @@ def check_scenario_keys(scenario):
         if not check_scenario_duration_keys(
                 scenario[key]['member']['actuation_config']['config']['duration']):
             return False
+        if 'actuation_per_ev' not in scenario[key]['member']['actuation_config']:
+            return False
         if not check_scenario_ev_keys(
                 scenario[key]['member']['actuation_config']['config']['ev']):
             return False
@@ -143,28 +145,65 @@ def update_scenario_time_event(scenario, starting_point):
 def update_config(scenario, config):
     if(scenario['member']['actuation_config']['config']['mode'] == 'agenda'):
         config['actuatorConfig']['mode'] = "agenda"
-        config['actuatorConfig']['agenda']['duration'] = str(scenario['member']['actuation_config']['config']['duration'][0])
         new_days = []
         for key in scenario['member']['actuation_config']['config']['days']:
             if scenario['member']['actuation_config']['config']['days'][key] == 'true':
                 new_days.append(key)
         config['actuatorConfig']['agenda']['days'] = new_days
-        if (scenario['member']['actuation_config']['config']['ev'][0] == 'true'):
-            config['meta_data_ev_1'] = True
+        if scenario['member']['actuation_config']['actuation_per_ev'] == 'false':
+            if 'actuation_per_ev' in config['actuatorConfig']:
+                del config['actuatorConfig']['actuation_per_ev']
+            config['actuatorConfig']['agenda']['duration'] = str(scenario['member']['actuation_config']['config']['duration'][0])
+            if (scenario['member']['actuation_config']['config']['ev'][0] == 'true'):
+                config['actuatorConfig']['ev_1']['active'] = True
+            else:
+                config['actuatorConfig']['ev_1']['active'] = False
+            if 'duration' in config['actuatorConfig']['ev_1']:
+                del config['actuatorConfig']['ev_1']['duration']
+            if (scenario['member']['actuation_config']['config']['ev'][1] == 'true'):
+                config['actuatorConfig']['ev_2']['active'] = True
+            else:
+                config['actuatorConfig']['ev_2']['active'] = False
+            if 'duration' in config['actuatorConfig']['ev_2']:
+                del config['actuatorConfig']['ev_2']['duration']
+            if (scenario['member']['actuation_config']['config']['ev'][2] == 'true'):
+                config['actuatorConfig']['ev_3']['active'] = True
+            else:
+                config['actuatorConfig']['ev_3']['active'] = False
+            if 'duration' in config['actuatorConfig']['ev_3']:
+                del config['actuatorConfig']['ev_3']['duration']
+            if (scenario['member']['actuation_config']['config']['ev'][3] == 'true'):
+                config['actuatorConfig']['ev_4']['active'] = True
+            else:
+                config['actuatorConfig']['ev_4']['active'] = False
+            if 'duration' in config['actuatorConfig']['ev_4']:
+                del config['actuatorConfig']['ev_4']['duration']
         else:
-            config['meta_data_ev_1'] = False
-        if (scenario['member']['actuation_config']['config']['ev'][1] == 'true'):
-            config['meta_data_ev_2'] = True
-        else:
-            config['meta_data_ev_2'] = False
-        if (scenario['member']['actuation_config']['config']['ev'][2] == 'true'):
-            config['meta_data_ev_3'] = True
-        else:
-            config['meta_data_ev_3'] = False
-        if (scenario['member']['actuation_config']['config']['ev'][3] == 'true'):
-            config['meta_data_ev_4'] = True
-        else:
-            config['meta_data_ev_4'] = False
+            config['actuatorConfig']['actuation_per_ev'] = True
+            if (scenario['member']['actuation_config']['config']['ev'][0] == 'true'):
+                config['actuatorConfig']['ev_1']['active'] = True
+                config['actuatorConfig']['ev_1']['duration'] = str(scenario['member']['actuation_config']['config']['duration'][0])
+            else:
+                config['actuatorConfig']['ev_1']['active'] = False
+                config['actuatorConfig']['ev_1']['duration'] = None
+            if (scenario['member']['actuation_config']['config']['ev'][1] == 'true'):
+                config['actuatorConfig']['ev_2']['active'] = True
+                config['actuatorConfig']['ev_2']['duration'] = str(scenario['member']['actuation_config']['config']['duration'][1])
+            else:
+                config['actuatorConfig']['ev_2']['active'] = False
+                config['actuatorConfig']['ev_2']['duration'] = None
+            if (scenario['member']['actuation_config']['config']['ev'][2] == 'true'):
+                config['actuatorConfig']['ev_3']['active'] = True
+                config['actuatorConfig']['ev_3']['duration'] = str(scenario['member']['actuation_config']['config']['duration'][2])
+            else:
+                config['actuatorConfig']['ev_3']['active'] = False
+                config['actuatorConfig']['ev_3']['duration'] = None
+            if (scenario['member']['actuation_config']['config']['ev'][3] == 'true'):
+                config['actuatorConfig']['ev_4']['active'] = True
+                config['actuatorConfig']['ev_4']['duration'] = str(scenario['member']['actuation_config']['config']['duration'][3])
+            else:
+                config['actuatorConfig']['ev_4']['active'] = False
+                config['actuatorConfig']['ev_4']['duration'] = None
         dt_actuation1 = datetime.fromtimestamp(scenario['member']['actuation_config']['config']['actuation1'])
         dt_actuation2 = datetime.fromtimestamp(scenario['member']['actuation_config']['config']['actuation2'])
         del config['actuatorConfig']['agenda']['startTimes'][:]
@@ -184,6 +223,6 @@ def update_config(scenario, config):
             del config['actuatorConfig']['pauseInfo']
         if scenario['member']['actuation_config']['config']['disengage'] == "true":
             config['actuatorConfig']['pauseInfo'] = {"activated": True}
-        else :
+        else:
             config['actuatorConfig']['pauseInfo'] = {"activated": False}
         return config
