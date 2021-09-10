@@ -5,24 +5,24 @@
             "device_model": "revG",
             "actuation_config": {
                 "provisioning_at": "00:02",
-                "get_data_at": "00:35",
-                "actuation_per_ev": "true",
+                "get_data_at": "02:40",
+                "actuation_per_ev": "false",
                 "config": {
-                    "actuation1": "00:20",
-                    "actuation2": "00:30",
+                    "actuation1": "00:15",
+                    "actuation2": "01:25",
                     "mode": "agenda",
                     "serial": "true",
                     "disengage": "false",
                     "duration": [
-                        "1",
-                        "1",
-                        "1",
-                        "1"
+                        "30",
+                        "30",
+                        "30",
+                        "30"
                     ],
                     "ev": [
                         "true",
                         "false",
-                        "false",
+                        "true",
                         "false"
                     ],
                     "days": {

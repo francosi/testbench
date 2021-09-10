@@ -1,0 +1,41 @@
+{
+  "SERIAL_AGENDA_01": {
+    "member": {
+      "test_name": "SERIAL_AGENDA_01",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "00:02",
+        "actuation_per_ev": "false",
+        "get_data_at": "1:00",
+        "config": {
+          "actuation1": "00:20",
+          "actuation2": "00:35",
+          "mode": "agenda",
+          "serial": "false",
+          "disengage": "false",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "true",
+            "false",
+            "true",
+            "false"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  }
+}
