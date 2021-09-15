@@ -60,6 +60,7 @@ def analyse_actuation(config, measures, scenario, log_file):
     disengage = False
     if scenario['config']['disengage'] == "true":
         disengage = True
+    check_actuation_2 = False
     opening_count = 0
     closing_count = 0
     actuation1_opening_cpt = 0
@@ -84,6 +85,7 @@ def analyse_actuation(config, measures, scenario, log_file):
         opening_closing_expected += 2
     if (actuation2_start_min > start and actuation2_stop_max < now):
         opening_closing_expected += 2
+        check_actuation_2 = True
 
     if (scenario['config']['serial'] == 'false'):
         print("\tSerial : FALSE\n", flush=True)
@@ -129,7 +131,7 @@ def analyse_actuation(config, measures, scenario, log_file):
                         file.write("\tdisengage 2 :" + " FAIL\n")
                         file.close()
                 else:
-                    print("\topenening Unwanted : " + item['created_at'] + " \033[91mFAIL\033[0m\n", flush=True)
+                    print("\topenening Unwanted : " + item['created_at'] + " \033[91mFAIL\033[0m\n\t" + str(item['timestamp']) + " Needed >= " + str(actuation1_stop_min) + " <= " + str(actuation1_stop_max) + " OR >= " + str(actuation2_stop_min) + " <= " + str(actuation2_stop_max) + "\n" , flush=True)
                     file = open(log_file,"a")
                     file.write("\topenening Unwanted : " + item['created_at'] + " FAIL\n")
                     file.close()
@@ -258,12 +260,12 @@ def analyse_actuation(config, measures, scenario, log_file):
             file = open(log_file,"a")
             file.write("\tLoopback control actuation 1 : " + str(actuation1_closing_cpt - actuation1_opening_cpt) + " FAIL\n")
             file.close()
-        if (actuation2_closing_cpt - actuation2_opening_cpt == ev_count * 2):
+        if (actuation2_closing_cpt - actuation2_opening_cpt == ev_count * 2 and check_actuation_2 is True):
             print("\tLoopback control actuation 2 : " + str(actuation2_closing_cpt - actuation2_opening_cpt) + " \033[92mPASS\033[0m\n", flush=True)
             file = open(log_file,"a")
             file.write("\tLoopback control actuation 2 : " + str(actuation1_closing_cpt - actuation1_opening_cpt) + " PASS\n")
             file.close()
-        else:
+        elif check_actuation_2 is True:
             print("\tLoopback control actuation 2 : \033[91mFAIL\033[0m\n", flush=True)
             file = open(log_file,"a")
             file.write("\tLoopback control actuation 2 : " + str(actuation1_closing_cpt - actuation1_opening_cpt) + " FAIL\n")

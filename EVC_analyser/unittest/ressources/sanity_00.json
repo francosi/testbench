@@ -1,0 +1,41 @@
+{
+    "SANITY_00": {
+      "member": {
+        "test_name": "SANITY_00",
+        "device_model": "revG",
+        "actuation_config": {
+          "provisioning_at": "43:00",
+          "get_data_at": "49:50",
+          "actuation_per_ev": "false",
+          "config": {
+            "actuation1": "44:25",
+            "actuation2": "47:50",
+            "mode": "agenda",
+            "serial": "true",
+            "disengage": "false",
+            "duration": [
+              "30",
+              "30",
+              "30",
+              "30"
+            ],
+            "ev": [
+              "false",
+              "true",
+              "false",
+              "true"
+            ],
+            "days": {
+              "monday": "true",
+              "tuesday": "true",
+              "wednesday": "true",
+              "thursday": "true",
+              "friday": "true",
+              "saturday": "true",
+              "sunday": "true"
+            }
+          }
+        }
+      }
+    }
+}

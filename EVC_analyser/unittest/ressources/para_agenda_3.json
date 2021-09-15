@@ -1,0 +1,80 @@
+{
+    "SERIAL_AGENDA_03_01": {
+      "member": {
+        "test_name": "SERIAL_AGENDA_03_01",
+        "device_model": "revG",
+        "actuation_config": {
+          "provisioning_at": "00:02",
+          "get_data_at": "00:40",
+          "actuation_per_ev": "false",
+          "config": {
+            "actuation1": "00:20",
+            "actuation2": "01:00",
+            "mode": "agenda",
+            "serial": "false",
+            "disengage": "false",
+            "duration": [
+              "5",
+              "5",
+              "5",
+              "5"
+            ],
+            "ev": [
+              "true",
+              "false",
+              "true",
+              "false"
+            ],
+            "days": {
+              "monday": "true",
+              "tuesday": "true",
+              "wednesday": "true",
+              "thursday": "true",
+              "friday": "true",
+              "saturday": "true",
+              "sunday": "true"
+            }
+          }
+        }
+      }
+    },
+    "SERIAL_AGENDA_03_02": {
+      "member": {
+        "test_name": "SERIAL_AGENDA_03_02",
+        "device_model": "revG",
+        "actuation_config": {
+          "provisioning_at": "00:42",
+          "get_data_at": "02:00",
+          "actuation_per_ev": "false",
+          "config": {
+            "actuation1": "01:10",
+            "actuation2": "01:30",
+            "mode": "agenda",
+            "serial": "false",
+            "disengage": "false",
+            "duration": [
+              "5",
+              "5",
+              "5",
+              "5"
+            ],
+            "ev": [
+              "true",
+              "false",
+              "true",
+              "false"
+            ],
+            "days": {
+              "monday": "true",
+              "tuesday": "true",
+              "wednesday": "true",
+              "thursday": "true",
+              "friday": "true",
+              "saturday": "true",
+              "sunday": "true"
+            }
+          }
+        }
+      }
+    }
+}
