@@ -1,0 +1,5 @@
+2022/04/14 17:23:26 Starting 0004a30b00edaded Analyse : contain 11 scenario and 22 event will be generated
+2022/04/14 17:28:03 execute provisioning task for : SERIAL_AGENDA_01
+2022/04/14 18:38:03 execute analyse data for : SERIAL_AGENDA_01
+	Frequency analyse : expected : >= 5 <= 10 found : 5 PASS
+	Serial : TRUE

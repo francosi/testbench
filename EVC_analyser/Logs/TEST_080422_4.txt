@@ -1,0 +1,134 @@
+2022/04/08 16:49:04 Starting 0004a30b00ed9375 Analyse : contain 11 scenario and 22 event will be generated
+2022/04/08 16:54:02 execute provisioning task for : SERIAL_AGENDA_01
+2022/04/08 18:04:02 execute analyse data for : SERIAL_AGENDA_01
+	Frequency analyse : expected : >= 5 <= 10 found : 5 PASS
+	Serial : TRUE
+	openening 1 : 2022-04-08T15:19:00.226199699Z PASS
+	closing 1 : 2022-04-08T15:29:54.584Z PASS
+	openening 2 : 2022-04-08T15:34:17.093356024Z PASS
+	closing 2 : 2022-04-08T15:45:11.448Z PASS
+	Nb opening/closing : 8 PASS
+	Loopback control actuation 1 : 4 PASS
+	Loopback control actuation 2 : 4 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/08 18:06:02 execute provisioning task for : SERIAL_AGENDA_02
+2022/04/08 21:09:02 execute analyse data for : SERIAL_AGENDA_02
+	Frequency analyse : expected : >= 6 <= 21 found : 6 PASS
+	Serial : TRUE
+	openening 1 : 2022-04-08T16:29:30.111201344Z PASS
+	closing 1 : 2022-04-08T17:30:24.530Z PASS
+	openening 2 : 2022-04-08T17:44:47.028418320Z PASS
+	closing 2 : 2022-04-08T18:45:41.443Z PASS
+	Nb opening/closing : 8 PASS
+	Loopback control actuation 1 : 4 PASS
+	Loopback control actuation 2 : 4 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/08 21:11:02 execute provisioning task for : SERIAL_AGENDA_03_01
+2022/04/08 22:19:02 execute analyse data for : SERIAL_AGENDA_03_01
+	Frequency analyse : expected : >= 4 <= 8 found : 6 PASS
+	Serial : TRUE
+	openening 1 : 2022-04-08T19:39:00.117082555Z PASS
+	closing 1 : 2022-04-08T19:49:54.489Z PASS
+	Nb opening/closing : 4 PASS
+	Loopback control actuation 1 : 4 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/08 22:21:02 execute provisioning task for : SERIAL_AGENDA_03_02
+2022/04/09 00:19:02 execute analyse data for : SERIAL_AGENDA_03_02
+	Frequency analyse : expected : >= 9 <= 14 found : 10 PASS
+	Serial : TRUE
+	openening 1 : 2022-04-08T20:49:17.262525539Z PASS
+	closing 1 : 2022-04-08T21:00:11.613Z PASS
+	openening 2 : 2022-04-08T21:19:34.117789014Z PASS
+	closing 2 : 2022-04-08T21:30:28.480Z PASS
+	Nb opening/closing : 8 PASS
+	Loopback control actuation 1 : 4 PASS
+	Loopback control actuation 2 : 4 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/09 00:21:02 execute provisioning task for : SERIAL_PAUSE_00
+2022/04/09 01:39:02 execute analyse data for : SERIAL_PAUSE_00
+	Frequency analyse : expected : >= 5 <= 10 found : 6 PASS
+	Serial : TRUE
+	openening 1 : 2022-04-08T22:44:06.553792722Z PASS
+	disengage 1 : PASS
+	openening 2 : 2022-04-08T23:04:36.598874902Z PASS
+	disengage 2 : PASS
+	Nb opening/closing : 2 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/09 01:41:02 execute provisioning task for : PARA_AGENDA_01
+2022/04/09 03:14:02 execute analyse data for : PARA_AGENDA_01
+	Frequency analyse : expected : >= 9 <= 12 found : 9 PASS
+	Serial : FALSE
+	openening 1 : 2022-04-09T00:19:23.456586909Z PASS
+	closing 1 : 2022-04-09T00:24:46.443137056Z PASS
+	openening 2 : 2022-04-09T00:34:18.283757910Z PASS
+	closing 2 : 2022-04-09T00:39:41.225793749Z PASS
+	Nb opening/closing : 4 PASS
+	Loopback control actuation 1 : 4 PASS
+	Loopback control actuation 2 : 4 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/09 03:16:02 execute provisioning task for : PARA_AGENDA_02
+2022/04/09 06:29:02 execute analyse data for : PARA_AGENDA_02
+	Frequency analyse : expected : >= 13 <= 22 found : 13 PASS
+	Serial : FALSE
+	openening 1 : 2022-04-09T01:44:13.760330027Z PASS
+	closing 1 : 2022-04-09T02:14:36.730179315Z PASS
+	openening Unwanted : 2022-04-09T03:00:08.621188579Z FAIL
+	closing Unwanted : 2022-04-09T03:30:31.593826384Z FAIL
+	Nb opening/closing : 2 FAIL
+	Loopback control actuation 1 : 4 PASS
+	Loopback control actuation 2 : 4 FAIL
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/09 06:34:02 execute provisioning task for : PARA_AGENDA_03_01
+2022/04/09 07:14:02 execute analyse data for : PARA_AGENDA_03_01
+	Frequency analyse : expected : >= 3 <= 6 found : 4 PASS
+	Serial : FALSE
+	openening 1 : 2022-04-09T04:59:11.710378468Z PASS
+	disengage 1 : PASS
+	Nb opening/closing : 1 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/09 07:17:02 execute provisioning task for : PARA_AGENDA_03_02
+2022/04/09 08:39:02 execute analyse data for : PARA_AGENDA_03_02
+	Frequency analyse : expected : >= 8 <= 11 found : 7 FAIL
+	Serial : FALSE
+	openening 1 : 2022-04-09T05:49:32.552960675Z PASS
+	closing 1 : 2022-04-09T05:54:55.485167705Z PASS
+	openening 2 : 2022-04-09T06:09:27.379458403Z PASS
+	closing 2 : 2022-04-09T06:14:50.283536635Z PASS
+	Nb opening/closing : 4 PASS
+	Loopback control actuation 1 : 4 PASS
+	Loopback control actuation 2 : 4 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/09 08:41:02 execute provisioning task for : PARA_PAUSE_00
+2022/04/09 10:09:02 execute analyse data for : PARA_PAUSE_00
+	Frequency analyse : expected : >= 8 <= 11 found : 8 PASS
+	Serial : FALSE
+	openening 1 : 2022-04-09T07:19:22.238918912Z PASS
+	disengage 1 : PASS
+	openening 2 : 2022-04-09T07:34:30.207939749Z PASS
+	disengage 2 : PASS
+	Nb opening/closing : 2 PASS
+	Sanity analyse PASS
+	Reboot analyse PASS
+2022/04/10 11:49:02 execute provisioning task for : SANITY_00
+2022/04/10 18:39:02 execute analyse data for : SANITY_00
+	Frequency analyse : expected : >= 29 <= 44 found : 30 PASS
+	Serial : TRUE
+	openening 1 : 2022-04-10T11:14:25.560503900Z PASS
+	closing 1 : 2022-04-10T12:15:19.990Z PASS
+	openening 2 : 2022-04-10T14:39:41.461258191Z PASS
+	closing 2 : 2022-04-10T15:40:35.876Z PASS
+	Nb opening/closing : 8 PASS
+	Loopback control actuation 1 : 4 PASS
+	Loopback control actuation 2 : 4 PASS
+	Sanity executed at : 2022-04-10T15:42:07.497Z
+	Sanity analyse PASS
+	Reboot analyse PASS

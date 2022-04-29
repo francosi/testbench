@@ -1,0 +1,431 @@
+{
+  "SERIAL_AGENDA_01": {
+    "member": {
+      "test_name": "SERIAL_AGENDA_01",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "00:05",
+        "actuation_per_ev": "false",
+        "get_data_at": "1:15",
+        "config": {
+          "actuation1": "00:30",
+          "actuation2": "00:45",
+          "mode": "agenda",
+          "serial": "true",
+          "disengage": "false",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "true",
+            "false",
+            "true",
+            "false"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "SERIAL_AGENDA_02": {
+    "member": {
+      "test_name": "SERIAL_AGENDA_02",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "01:17",
+        "get_data_at": "04:20",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "01:40",
+          "actuation2": "02:55",
+          "mode": "agenda",
+          "serial": "true",
+          "disengage": "false",
+          "duration": [
+            "30",
+            "30",
+            "30",
+            "30"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "SERIAL_AGENDA_03_01": {
+    "member": {
+      "test_name": "SERIAL_AGENDA_03_01",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "04:22",
+        "get_data_at": "05:30",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "04:50",
+          "actuation2": "05:40",
+          "mode": "agenda",
+          "serial": "true",
+          "disengage": "false",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "SERIAL_AGENDA_03_02": {
+    "member": {
+      "test_name": "SERIAL_AGENDA_03_02",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "05:32",
+        "get_data_at": "07:30",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "06:00",
+          "actuation2": "06:30",
+          "mode": "agenda",
+          "serial": "true",
+          "disengage": "false",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "SERIAL_PAUSE_00": {
+    "member": {
+      "test_name": "SERIAL_PAUSE_00",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "07:32",
+        "get_data_at": "08:50",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "07:55",
+          "actuation2": "08:15",
+          "mode": "agenda",
+          "serial": "true",
+          "disengage": "true",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "PARA_AGENDA_01": {
+    "member": {
+      "test_name": "PARA_AGENDA_01",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "08:52",
+        "actuation_per_ev": "false",
+        "get_data_at": "10:25",
+        "config": {
+          "actuation1": "09:30",
+          "actuation2": "09:45",
+          "mode": "agenda",
+          "serial": "false",
+          "disengage": "false",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "true",
+            "false",
+            "true",
+            "false"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "PARA_AGENDA_02": {
+    "member": {
+      "test_name": "PARA_AGENDA_02",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "10:27",
+        "get_data_at": "13:40",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "10:55",
+          "actuation2": "12:10",
+          "mode": "agenda",
+          "serial": "false",
+          "disengage": "false",
+          "duration": [
+            "30",
+            "30",
+            "30",
+            "30"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "PARA_AGENDA_03_01": {
+    "member": {
+      "test_name": "PARA_AGENDA_03_01",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "13:45",
+        "get_data_at": "14:25",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "14:10",
+          "actuation2": "14:50",
+          "mode": "agenda",
+          "serial": "false",
+          "disengage": "true",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "PARA_AGENDA_03_02": {
+    "member": {
+      "test_name": "PARA_AGENDA_03_02",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "14:28",
+        "get_data_at": "15:50",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "15:00",
+          "actuation2": "15:20",
+          "mode": "agenda",
+          "serial": "false",
+          "disengage": "false",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "PARA_PAUSE_00": {
+    "member": {
+      "test_name": "PARA_PAUSE_00",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "15:52",
+        "get_data_at": "17:20",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "16:30",
+          "actuation2": "16:45",
+          "mode": "agenda",
+          "serial": "false",
+          "disengage": "true",
+          "duration": [
+            "5",
+            "5",
+            "5",
+            "5"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  },
+  "SANITY_00": {
+    "member": {
+      "test_name": "SANITY_00",
+      "device_model": "revG",
+      "actuation_config": {
+        "provisioning_at": "43:00",
+        "get_data_at": "49:50",
+        "actuation_per_ev": "false",
+        "config": {
+          "actuation1": "44:25",
+          "actuation2": "47:50",
+          "mode": "agenda",
+          "serial": "true",
+          "disengage": "false",
+          "duration": [
+            "30",
+            "30",
+            "30",
+            "30"
+          ],
+          "ev": [
+            "false",
+            "true",
+            "false",
+            "true"
+          ],
+          "days": {
+            "monday": "true",
+            "tuesday": "true",
+            "wednesday": "true",
+            "thursday": "true",
+            "friday": "true",
+            "saturday": "true",
+            "sunday": "true"
+          }
+        }
+      }
+    }
+  }
+}
