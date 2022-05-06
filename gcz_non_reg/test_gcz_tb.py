@@ -54,10 +54,12 @@ class Test_nonReg(unittest.TestCase):
 
     def test_05_report_freq(self):
         # Test report metronomy
+        freq = int(1440 / self.device.metadata['collectionFrequency'])
         reportMsg = [x for x in self.timeline if x['type'] == 1]
         print("\n\n\tRepport message count = " + str(len(reportMsg)), end="\n")
         self.assertGreaterEqual(
-            len(reportMsg), int((self.timelife/((60*60)*24))*144) - 10)
+            len(reportMsg), int((freq) - 10)
+            # len(reportMsg), int((self.timelife/((60*60)*24))*144) - 10)
 
     def test_06_firmware_version(self):
         # Test firmwareVersion
@@ -138,6 +140,59 @@ class Test_nonReg(unittest.TestCase):
         self.assertLessEqual(std_dev, derive)
         self.assertLessEqual(range, 10)
 
+    def test_85_SOIL_SM100_SINGLE(self):
+        adc = []
+        derive = 10
+        for x in self.timeline:
+            if x['type'] == 1:
+                adc.append(x['adc_raw_1'])
+        std_dev = numpy.std(adc)
+        max =  numpy.max(adc)
+        min = numpy.min(adc)
+        print("\n\n\tStd deviation = " + str(std_dev), end=" ")
+        print("\n\n\tMin = " + str(min), end=" ")
+        print("\n\n\tMax = " + str(max), end=" ")
+        self.assertGreaterEqual(std_dev, derive)
+
+    def test_86_EXT_TEMP_HUM_REVG(self):
+        temp = []
+        hum = []
+        derive = 3
+        for x in self.timeline:
+            if x['type'] == 1:
+                temp.append(x['temperature_air_hdc1000'])
+                hum.append(x['moisture_air_hdc1000'])
+        std_dev_hum = numpy.std(hum)
+        std_dev_temp = numpy.std(temp)
+        max_temp =  numpy.max(temp)
+        min_temp = numpy.min(temp)
+        max_hum =  numpy.max(hum)
+        min_hum = numpy.min(hum)
+        print("\n\n\tTemperature Std deviation = " + str(std_dev_hum), end=" ")
+        print("\n\n\tHumidity Std deviation = " + str(std_dev_temp), end=" ")
+        print("\n\n\tTemperature Min = " + str(min_temp), end=" ")
+        print("\n\n\tTemperature Max = " + str(max_temp), end=" ")
+        print("\n\n\tHumidity Min = " + str(min_hum), end=" ")
+        print("\n\n\tHumidity Max = " + str(max_hum), end=" ")
+        self.assertGreaterEqual(std_dev_hum, derive)
+        self.assertGreaterEqual(std_dev_temp, derive)
+        self.assertGreaterEqual(min_temp, 15)
+        self.assertLessEqual(max_temp, 25)
+
+    def test_95_ECU_HR_MAX_SPLIT_4xSIGFOX_10xLORA(self):
+        dist = []
+        derive = 2
+        for x in self.timeline:
+            if x['type'] == 1:
+                dist.append(x['distance'])
+        std_dev = numpy.std(dist)
+        range = numpy.max(dist) - numpy.min(dist)
+        ave = numpy.average(dist)
+        print("\n\n\tStd deviation = " + str(std_dev), end=" ")
+        print("\n\tDistance (max - min) = " + str(range), end=" ")
+        print("\n\tDistance = " + str(ave), end="\n")
+        self.assertLessEqual(std_dev, derive)
+        self.assertLessEqual(range, 10)
 
 test_cases = [
     "test_01_elapsedTimeAfterPlug",
